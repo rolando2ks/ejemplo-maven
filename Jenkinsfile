@@ -30,10 +30,5 @@ pipeline {
                 bat 'mvn clean package -e'
             }
         }
-        stage('Run Jar'){
-            steps {
-                bat 'mvn spring-boot:run'
-            }
-        }
     }
 }
