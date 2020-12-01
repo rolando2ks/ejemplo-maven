@@ -79,9 +79,7 @@ public class RestData {
 	public @ResponseBody Mundial getTotalMundial(){
 		
 		LOGGER.log(Level.INFO, "Consulta mundial");
-		
-		
-		System.out.println("Se muestra el log"+)
+				
 		
 		RestTemplate restTemplate = new RestTemplate();
 	    ResponseEntity<String> call= restTemplate.getForEntity("https://api.covid19api.com/world/total" ,String.class);
