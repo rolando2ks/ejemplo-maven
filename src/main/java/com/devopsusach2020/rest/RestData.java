@@ -40,15 +40,6 @@ public class RestData {
 	    ResponseEntity<String> call= restTemplate.getForEntity("https://api.covid19api.com/live/country/" + message ,String.class);
 	    
 	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
-	    LOGGER.log(Level.INFO, "Consulta por pais");
 	    
 		Pais response = new Pais();
 		int confirmed = 0;
@@ -89,10 +80,10 @@ public class RestData {
         response.setTotalConfirmed(estado.getTotalConfirmed());
         response.setTotalDeaths(estado.getTotalDeaths());
         response.setTotalRecovered(estado.getTotalRecovered());
-		
-		System.out.println("estado.getTotalConfirmed(): "+estado.getTotalConfirmed());
-		System.out.println("estado.getTotalDeaths(): "+estado.getTotalDeaths());
-		System.out.println("estado.getTotalRecovered(): "+estado.getTotalRecovered());
+			
+		LOGGER.log(Level.INFO, "estado.getTotalConfirmed() {}",estado.getTotalConfirmed());
+		LOGGER.log(Level.INFO, "estado.getTotalDeaths() {}",estado.getTotalDeaths());
+		LOGGER.log(Level.INFO, "estado.getTotalRecovered() {}",estado.getTotalRecovered());
 			
 		
 
