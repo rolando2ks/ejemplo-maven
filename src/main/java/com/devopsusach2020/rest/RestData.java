@@ -74,19 +74,24 @@ public class RestData {
 		
 		RestTemplate restTemplate = new RestTemplate();
 	    ResponseEntity<String> call= restTemplate.getForEntity("https://api.covid19api.com/world/total" ,String.class);
-	    Mundial response = new Mundial();
-		Gson gson = new Gson();
-        Mundial estado = gson.fromJson(call.getBody().toLowerCase(), Mundial.class);
-        response.setTotalConfirmed(estado.getTotalConfirmed());
-        response.setTotalDeaths(estado.getTotalDeaths());
-        response.setTotalRecovered(estado.getTotalRecovered());
-			
-		LOGGER.log(Level.INFO, "estado.getTotalConfirmed() {}",estado.getTotalConfirmed());
-		LOGGER.log(Level.INFO, "estado.getTotalDeaths() {}",estado.getTotalDeaths());
-		LOGGER.log(Level.INFO, "estado.getTotalRecovered() {}",estado.getTotalRecovered());
-			
-		
+	    
+		if (null != call) {
+			Mundial response = new Mundial();
+			Gson gson = new Gson();
+			Mundial estado = gson.fromJson(call.getBody().toLowerCase(), Mundial.class);
+			response.setTotalConfirmed(estado.getTotalConfirmed());
+			response.setTotalDeaths(estado.getTotalDeaths());
+			response.setTotalRecovered(estado.getTotalRecovered());
+				
+			LOGGER.log(Level.INFO, "estado.getTotalConfirmed() {}",estado.getTotalConfirmed());
+			LOGGER.log(Level.INFO, "estado.getTotalDeaths() {}",estado.getTotalDeaths());
+			LOGGER.log(Level.INFO, "estado.getTotalRecovered() {}",estado.getTotalRecovered());
+			return response;
+		}else{
+		 LOG.error("Error valor nulo de call");
+		}
 
-		return response;		
+
+				
 	}
 }
