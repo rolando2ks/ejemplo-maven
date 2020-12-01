@@ -88,7 +88,7 @@ public class RestData {
 			LOGGER.log(Level.INFO, "estado.getTotalRecovered() {}",estado.getTotalRecovered());
 			return response;
 		}else{
-		 LOGGER.error("Error valor nulo de call");
+		 LOGGER.log("Error valor nulo de call");
 		}
 
 
