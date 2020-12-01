@@ -80,6 +80,9 @@ public class RestData {
 		
 		LOGGER.log(Level.INFO, "Consulta mundial");
 		
+		
+		System.out.println("Se muestra el log"+)
+		
 		RestTemplate restTemplate = new RestTemplate();
 	    ResponseEntity<String> call= restTemplate.getForEntity("https://api.covid19api.com/world/total" ,String.class);
 	    Mundial response = new Mundial();
@@ -88,6 +91,12 @@ public class RestData {
         response.setTotalConfirmed(estado.getTotalConfirmed());
         response.setTotalDeaths(estado.getTotalDeaths());
         response.setTotalRecovered(estado.getTotalRecovered());
+		
+		System.out.println("estado.getTotalConfirmed(): "+estado.getTotalConfirmed());
+		System.out.println("estado.getTotalDeaths(): "+estado.getTotalDeaths());
+		System.out.println("estado.getTotalRecovered(): "+estado.getTotalRecovered());
+			
+		
 
 		return response;		
 	}
