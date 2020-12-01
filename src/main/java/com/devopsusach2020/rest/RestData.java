@@ -3,6 +3,7 @@ package com.devopsusach2020.rest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.devopsusach2020.model.Pais;
 import com.devopsusach2020.model.Mundial;
@@ -88,7 +90,7 @@ public class RestData {
 			LOGGER.log(Level.INFO, "estado.getTotalRecovered() {}",estado.getTotalRecovered());
 			return response;
 		}else{
-		 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		 
 		}
 
